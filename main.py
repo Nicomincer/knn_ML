@@ -34,7 +34,7 @@ for valor in y_test:
         a.append(2)
 print(a)
 contagem = 0
-for c in range(0, len(y_pred)-1):
+for c in range(0, len(y_pred)):
     if y_pred[c] == a[c]:
         contagem+= 1
 
