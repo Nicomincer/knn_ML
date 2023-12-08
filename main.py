@@ -13,13 +13,13 @@ print(df.info())
 train, valid, test = np.split(df.sample(frac=1), [int(0.6*len(df)), int(0.8*len(df))])
 
 
-X_train = df[df.columns[:-1]].values
-y_train = df[df.columns[-1]].values
-X_test = train[train.columns[:-1]].values
-y_test = train[train.columns[-1]].values
+X_train = train[train.columns[:-1]].values
+y_train = train[train.columns[-1]].values
+X_test = valid[valid.columns[:-1]].values
+y_test = valid[valid.columns[-1]].values
 label_map = {'Iris-setosa': 0, 'Iris-versicolor': 1, 'Iris-virginica': 2}
 y_train = [label_map[label] for label in y_train]
-knn_model = KNeighborsClassifier(n_neighbors=1)
+knn_model = KNeighborsClassifier(n_neighbors=3)
 knn_model.fit(X_train, y_train)
 
 y_pred = knn_model.predict(X_test)
@@ -40,4 +40,5 @@ for c in range(0, len(y_pred)):
 
 erros = len(a)-contagem
 acertos = contagem
+print(contagem)
 print(f"Houve {acertos} acertos e {erros} erros, com rendimento de {(acertos/len(a))*100}%")
