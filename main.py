@@ -8,7 +8,6 @@ from sklearn.model_selection import cross_val_score
 #from imblearn.over_sampling import RandomOverSampler
 
 df = pd.read_csv("archive/Iris.csv")
-print(df.info())
 
 train, valid, test = np.split(df.sample(frac=1), [int(0.6*len(df)), int(0.8*len(df))])
 
